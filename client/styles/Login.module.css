@@ -1,0 +1,98 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.header {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.loginbox {
+  width: 450px;
+  background-color: #20222d1f;
+  padding: 40px;
+  border-radius: 30px;
+  border: 1px solid;
+}
+
+.loginheader {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.loginbox .userbox {
+  position: relative;
+}
+
+.loginbox .userbox input {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 24px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+}
+
+.loginbox .userbox label {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.loginbox .userbox input:focus ~ label,
+.loginbox .userbox input:valid ~ label {
+  top: -25px;
+  left: 0;
+  color: #c874b2;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: inherit;
+  background-color: #20222d1f;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background: #c874b286;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 5px #c874b2, 0 0 25px #c874b2, 0 0 50px #c874b2,
+    0 0 100px #c874b2;
+}
+
+.notregistered {
+  margin-top: 1.5rem;
+}
+.notResteredClick {
+  margin-bottom: 10px;
+}

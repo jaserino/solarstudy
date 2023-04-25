@@ -1,0 +1,36 @@
+/* color palette
+HEX CODES:
+#210535
+#430d4b
+#7b337d
+#c874b2
+#f5d5e0
+*/
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Orbitron', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background-color: #000000;
+    background-image: url(/stars.svg);
+  }
+}
