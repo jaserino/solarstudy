@@ -4,7 +4,7 @@ import '../styles/globals.css';
 
 import Nav from './components/Nav';
 import Footer from './components/Footer';
-import Main from './pages/Main';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -14,7 +14,7 @@ function App() {
       <div className="container">
         <Nav />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>

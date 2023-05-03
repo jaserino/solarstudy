@@ -2,10 +2,9 @@ import loginStyles from '../../styles/Login.module.css';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// useSelector allows us to select anything in the global state ex.. user, message etc.
-// useDispatch allows us to dispatch actions like calling register func
+
 import { useSelector, useDispatch } from 'react-redux';
-// import { login } from '../features/auth/authSlice';
+import { login } from '../features/auth/authSlice';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +13,10 @@ const Login = () => {
   });
 
   const { email, password } = formData;
+
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.auth);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -24,13 +27,20 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    const userData = {
+      email,
+      password,
+    };
+
+    dispatch(login(userData));
   };
 
   return (
     <>
       <section className={loginStyles.container}>
         <div className={loginStyles.main}>
-          <h1 className={loginStyles.header}>Welcome Back</h1>
+          <h1 className={loginStyles.header}>Welcome Back!</h1>
           <div className={loginStyles.loginbox}>
             <form onSubmit={onSubmit}>
               <h3 className={loginStyles.loginheader}>Login</h3>

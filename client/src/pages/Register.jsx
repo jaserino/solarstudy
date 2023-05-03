@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import signupStyles from '../../styles/Signup.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// useSelector allows us to select anything in the global state ex.. user, message etc.
+// useSelector allows us to select anything in the global state ex.. user, message, ticket etc.
 // useDispatch allows us to dispatch actions like calling register func
-// import { useSelector, useDispatch } from 'react-redux';
-// import { register, reset } from '../features/auth/authSlice.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { register } from '../features/auth/authSlice.jsx';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +17,10 @@ const Register = () => {
   });
 
   const { name, email, password, cpassword } = formData;
+
+  const dispatch = useDispatch();
+
+  const { user, isLoading } = useSelector((state) => state.auth);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -33,6 +37,13 @@ const Register = () => {
         position: toast.POSITION.TOP_CENTER,
         theme: 'dark',
       });
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+      };
+      dispatch(register(userData));
     }
   };
 
