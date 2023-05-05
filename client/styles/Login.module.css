@@ -96,3 +96,8 @@
 .notResteredClick {
   margin-bottom: 10px;
 }
+
+.signuplink:hover {
+  color: #c874b2;
+  font-size: 18px;
+}

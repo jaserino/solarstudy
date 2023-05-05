@@ -1,10 +1,11 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
+import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { extractErrorMessage } from '../../utils';
 import authService from './authService';
 
+const user = JSON.parse(localStorage.getItem('user'));
+
 const initialState = {
-  user: null,
+  user: user ? user : null,
   isLoading: false,
 };
 
@@ -25,11 +26,36 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   console.log(user);
 });
 
+// logging out a user
+export const logout = createAction('auth/logout', () => {
+  authService.logout();
+  // return an empty object as our payload as we don't need a payload but the
+  // prepare function requires a payload return
+  return {};
+});
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {},
+  reducers: {
+    logout: (state) => {
+      state.user = null;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(register.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(register.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(register.rejected, (state) => {
+        state.user = null;
+        state.isLoading = false;
+      });
+  },
 });
 
 export default authSlice.reducer;

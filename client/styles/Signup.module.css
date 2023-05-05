@@ -92,3 +92,8 @@
 .alreadyRegistered {
   margin-top: 1.5rem;
 }
+
+.loginhere:hover {
+  color: #c874b2;
+  font-size: 18px;
+}

@@ -19,6 +19,12 @@ const secure = asyncHandler(async (req, res, next) => {
       //get the user from verified token but exluding the password
       req.user = await User.findById(decoded.id).select('-password');
 
+      //checking if user was found
+      if (!req.user) {
+        res.status(401);
+        throw new Error('Not Authorized');
+      }
+
       next();
     } catch (error) {
       console.log(error);

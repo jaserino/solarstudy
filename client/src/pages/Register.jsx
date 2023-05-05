@@ -1,11 +1,9 @@
-import { useState, useEffect } from 'react';
-
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import signupStyles from '../../styles/Signup.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// useSelector allows us to select anything in the global state ex.. user, message, ticket etc.
-// useDispatch allows us to dispatch actions like calling register func
-import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../features/auth/authSlice.jsx';
 
 const Register = () => {
@@ -19,8 +17,7 @@ const Register = () => {
   const { name, email, password, cpassword } = formData;
 
   const dispatch = useDispatch();
-
-  const { user, isLoading } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -43,7 +40,16 @@ const Register = () => {
         email,
         password,
       };
-      dispatch(register(userData));
+      dispatch(register(userData))
+        .unwrap()
+        .then((user) => {
+          toast.success(`Registered a new user - ${user.name}`);
+          navigate('/');
+        })
+        .catch(toast.error, {
+          position: toast.POSITION.TOP_CENTER,
+          theme: 'dark',
+        });
     }
   };
 
@@ -104,7 +110,9 @@ const Register = () => {
               <button className={signupStyles.button}>ENGAGE</button>
             </form>
             <div className={signupStyles.alreadyRegistered}>
-              <a href="/login">Have an account? Login here.</a>
+              <a className={signupStyles.loginhere} href="/login">
+                Have an account? Login here!
+              </a>
             </div>
           </div>
         </div>

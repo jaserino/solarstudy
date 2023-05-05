@@ -70,9 +70,10 @@ const Login = () => {
             </form>
             <div className={loginStyles.notregistered}>
               <div className={loginStyles.notResteredClick}>
-                Not Registered?
+                <a className={loginStyles.signuplink} href="/register">
+                  Not Registered? Sign up here!
+                </a>
               </div>
-              <a href="/signup">Sign up here!</a>
             </div>
           </div>
         </div>
