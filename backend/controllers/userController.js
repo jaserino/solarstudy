@@ -57,7 +57,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ email });
 
-  // check if user and passwords match
+  // check if user email and passwords match
   if (user && (await bcrypt.compare(password, user.password))) {
     res.status(200).json({
       _id: user._id,
@@ -67,7 +67,7 @@ const loginUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(401);
-    throw new Error('Invalid credentials');
+    throw new Error('Check your credentials and try again.');
   }
 });
 
