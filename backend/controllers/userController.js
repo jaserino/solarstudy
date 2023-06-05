@@ -72,10 +72,10 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 // description gets the current user
-// route /api/users/me
+// route /api/users/profile
 // access Private
 
-const getMe = asyncHandler(async (req, res) => {
+const getProfile = asyncHandler(async (req, res) => {
   const user = {
     id: req.user._id,
     email: req.user.email,
@@ -93,5 +93,5 @@ const generateToken = (id) => {
 module.exports = {
   registerUser,
   loginUser,
-  getMe,
+  getProfile,
 };

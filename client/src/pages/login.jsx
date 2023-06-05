@@ -40,7 +40,7 @@ const Login = () => {
       .unwrap()
       .then((user) => {
         toast.success(`Successful login, Welcome back ${user.name}`);
-        navigate('/');
+        navigate('/profile');
       })
       .catch(toast.error);
   };
