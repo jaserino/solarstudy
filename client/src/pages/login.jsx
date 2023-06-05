@@ -1,8 +1,9 @@
 import loginStyles from '../../styles/Login.module.css';
 import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../features/auth/authSlice';
 
@@ -15,8 +16,10 @@ const Login = () => {
   const { email, password } = formData;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const { user } = useSelector((state) => state.auth);
+  // need to add loading spinner
+  // const { isLoading } = useSelector((state) => state.auth);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -33,7 +36,13 @@ const Login = () => {
       password,
     };
 
-    dispatch(login(userData));
+    dispatch(login(userData))
+      .unwrap()
+      .then((user) => {
+        toast.success(`Successful login, Welcome back ${user.name}`);
+        navigate('/');
+      })
+      .catch(toast.error);
   };
 
   return (
@@ -78,7 +87,6 @@ const Login = () => {
           </div>
         </div>
       </section>
-      <ToastContainer />
     </>
   );
 };

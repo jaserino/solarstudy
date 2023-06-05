@@ -23,7 +23,11 @@ export const register = createAsyncThunk(
 
 //will be used to login user when passed the users credentials
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
-  console.log(user);
+  try {
+    return await authService.login(user);
+  } catch (error) {
+    return thunkAPI.rejectWithValue(extractErrorMessage(error));
+  }
 });
 
 // logging out a user
@@ -53,6 +57,16 @@ export const authSlice = createSlice({
       })
       .addCase(register.rejected, (state) => {
         state.user = null;
+        state.isLoading = false;
+      })
+      .addCase(login.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(login.rejected, (state) => {
         state.isLoading = false;
       });
   },

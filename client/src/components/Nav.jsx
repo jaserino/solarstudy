@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import navStyles from '../../styles/Nav.module.css';
 import logo from '../../public/logo2.png';
 import { FaSignOutAlt } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../features/auth/authSlice';
@@ -14,7 +15,8 @@ const Nav = () => {
 
   const onLogout = () => {
     dispatch(logout());
-    // navigate to the home screen for now until user screen is created
+    toast('Logged out successfully');
+    // navigate to the home screen for now until profile screen is created
     navigate('/');
   };
 
