@@ -23,9 +23,9 @@ const Profile = () => {
           <div className={profileStyles.cardItem}>
             <div className={profileStyles.cardLabel}>length</div>
             <div className={profileStyles.cardRow}>
-              <TbPlanet className={profileStyles.btn}>+</TbPlanet>
+              <button className={profileStyles.btn}>+</button>
               <div id={profileStyles.clock}>30:00</div>
-              <TbPlanet className={profileStyles.btn}>-</TbPlanet>
+              <button className={profileStyles.btn}>-</button>
             </div>
           </div>
         </div>
