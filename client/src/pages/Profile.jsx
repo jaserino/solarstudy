@@ -2,6 +2,8 @@ import React from 'react';
 import profileStyles from '../../styles/Profile.module.css';
 import { useSelector } from 'react-redux';
 
+import { TbPlanet } from 'react-icons/tb';
+
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
 
@@ -10,39 +12,22 @@ const Profile = () => {
       <h1>Welcome Back {user.name.toUpperCase()}</h1>
       <div className={profileStyles.grid}>
         <div className={profileStyles.card}>
-          <h4>Notes</h4>
-          <p>
-            Standard chunk of Lorem Ipsum used since the 1500s is showed below
-            for those interested.
-          </p>
-          <div></div>
-        </div>
+          {/* <div className={profileStyles.title}>Tasks</div> */}
 
-        <div className={profileStyles.card}>
-          <h4>Timer</h4>
-          <p>
-            Standard chunk of Lorem Ipsum used since the 1500s is showed below
-            for those interested.
-          </p>
-          <div></div>
-        </div>
-
-        <div className={profileStyles.card}>
-          <h4>Spotify</h4>
-          <p>
-            Standard chunk of Lorem Ipsum used since the 1500s is showed below
-            for those interested.
-          </p>
-          <div></div>
-        </div>
-
-        <div className={profileStyles.card}>
-          <h4>Youtube</h4>
-          <p>
-            Standard chunk of Lorem Ipsum used since the 1500s is showed below
-            for those interested.
-          </p>
-          <div></div>
+          <div className={profileStyles.cardItem}>
+            <div className={profileStyles.cardLabel}>current time</div>
+            <div className={profileStyles.cardRow}>
+              <div id={profileStyles.clock}>30:00</div>
+            </div>
+          </div>
+          <div className={profileStyles.cardItem}>
+            <div className={profileStyles.cardLabel}>length</div>
+            <div className={profileStyles.cardRow}>
+              <TbPlanet className={profileStyles.btn}>+</TbPlanet>
+              <div id={profileStyles.clock}>30:00</div>
+              <TbPlanet className={profileStyles.btn}>-</TbPlanet>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -8,15 +8,14 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 240px);
+  grid-template-columns: repeat(2, 20rem);
   gap: 36px;
   position: relative;
 }
 
 .card {
-  padding: 50px 15px 15px 15px;
+  padding: 2px 15px 15px 15px;
   border-radius: 15px;
-  cursor: pointer;
   position: relative;
   background-color: #18181b;
   border: 2px solid rgba(255, 255, 255, 0.12);
@@ -24,4 +23,28 @@
 
 .card:hover {
   box-shadow: 0px 3px 6px #7b337d;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+/* each card contents  */
+
+.cardItem {
+  width: 100%;
+}
+
+.cardRow {
+  margin: 8px 0 16px 0;
+  text-align: center;
+}
+
+.cardLabel {
+  font-size: 1rem;
+}
+
+.btn {
+  font-size: 1.5rem;
+  cursor: pointer;
 }
