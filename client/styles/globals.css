@@ -13,6 +13,10 @@ body {
   margin: 0;
   font-family: 'Orbitron', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  color-scheme: dark;
+  color: white;
+  background-image: url(/stars.svg);
 }
 
 a {
@@ -22,15 +26,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background-color: #000000;
-    background-image: url(/stars.svg);
-  }
 }
