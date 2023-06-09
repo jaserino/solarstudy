@@ -49,7 +49,7 @@ const Profile = () => {
         </div>
 
         <div className={profileStyles.card}>
-          <h3>Spotify</h3>
+          <h3>Tasks</h3>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
             maxime sunt dolor sit sapiente aliquid beatae impedit blanditiis
