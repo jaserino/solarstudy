@@ -1,0 +1,10 @@
+AWS 
+Golang
+Cloud Computing Developer
+LINUX
+cloud computing - aws
+containerization tools - docker + kubernetes
+automation - golang 
+CICD - jenkins
+Infrastructure  - ansible, terraform
+monitoring - prometheus
