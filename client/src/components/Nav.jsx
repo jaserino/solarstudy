@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import navStyles from '../../styles/Nav.module.css';
+import navStyles from '../../styles/componentsCSS/Nav.module.css';
 import logo from '../../public/logo2.png';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';

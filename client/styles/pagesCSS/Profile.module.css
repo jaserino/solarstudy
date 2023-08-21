@@ -1,0 +1,21 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 20rem);
+  gap: 36px;
+  position: relative;
+}
+
+.welcome {
+  font-size: 3rem;
+  margin: 0px 0px 50px 0px;
+}
+
+/* accordion */

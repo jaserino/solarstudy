@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import signupStyles from '../../styles/Signup.module.css';
+import registerStyles from '../../styles/pagesCSS/Register.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { register } from '../features/auth/authSlice.jsx';
@@ -55,15 +55,15 @@ const Register = () => {
 
   return (
     <>
-      <section className={signupStyles.container}>
-        <div className={signupStyles.main}>
-          <h1 className={signupStyles.header}>
+      <section className={registerStyles.container}>
+        <div className={registerStyles.main}>
+          <h1 className={registerStyles.header}>
             Elevate your study habits today.
           </h1>
-          <div className={signupStyles.signupbox}>
+          <div className={registerStyles.signupbox}>
             <form onSubmit={onSubmit}>
-              <h3 className={signupStyles.signupboxheader}>Register Now</h3>
-              <div className={signupStyles.userbox}>
+              <h3 className={registerStyles.signupboxheader}>Register Now</h3>
+              <div className={registerStyles.userbox}>
                 <input
                   type="text"
                   id="name"
@@ -74,7 +74,7 @@ const Register = () => {
                 />
                 <label>username</label>
               </div>
-              <div className={signupStyles.userbox}>
+              <div className={registerStyles.userbox}>
                 <input
                   type="email"
                   id="email"
@@ -85,7 +85,7 @@ const Register = () => {
                 />
                 <label>email</label>
               </div>
-              <div className={signupStyles.userbox}>
+              <div className={registerStyles.userbox}>
                 <input
                   type="password"
                   id="password"
@@ -96,7 +96,7 @@ const Register = () => {
                 />
                 <label>password</label>
               </div>
-              <div className={signupStyles.userbox}>
+              <div className={registerStyles.userbox}>
                 <input
                   type="password"
                   id="cpassword"
@@ -107,10 +107,10 @@ const Register = () => {
                 />
                 <label>confirm password</label>
               </div>
-              <button className={signupStyles.button}>ENGAGE</button>
+              <button className={registerStyles.button}>ENGAGE</button>
             </form>
-            <div className={signupStyles.alreadyRegistered}>
-              <a className={signupStyles.loginhere} href="/login">
+            <div className={registerStyles.alreadyRegistered}>
+              <a className={registerStyles.loginhere} href="/login">
                 Have an account? Login here!
               </a>
             </div>

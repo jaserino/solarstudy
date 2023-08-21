@@ -1,38 +1,3 @@
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 20rem);
-  gap: 36px;
-  position: relative;
-}
-
-.card {
-  padding: 2px 15px 15px 15px;
-  border-radius: 15px;
-  position: relative;
-  opacity: 0.8;
-  background-color: #18181b;
-  border: 2px solid rgba(255, 255, 255, 0.12);
-}
-
-.card:hover {
-  box-shadow: 0px 3px 6px #7b337d;
-}
-
-.welcome {
-  font-size: 3rem;
-  margin: 0px 0px 50px 0px;
-}
-
-/* accordion */
-
 .tabs {
   border-radius: 10px;
   margin: 0px;
