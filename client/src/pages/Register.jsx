@@ -43,8 +43,8 @@ const Register = () => {
       dispatch(register(userData))
         .unwrap()
         .then((user) => {
-          toast.success(`Registered a new user - ${user.name}`);
-          navigate('/');
+          toast.success(`Thanks for joining - ${user.name}`);
+          navigate('/profile');
         })
         .catch(toast.error, {
           position: toast.POSITION.TOP_CENTER,
