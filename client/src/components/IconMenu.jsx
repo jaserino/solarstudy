@@ -1,29 +1,29 @@
 import React from 'react';
 
-import AiFillYoutube from 'react-icons';
-import CgNotes from 'react-icons';
-import BsSpotify from 'react-icons';
-import IoIosTimer from 'react-icons';
+import { AiFillYoutube } from 'react-icons/ai';
+import { CgNotes } from 'react-icons/cg';
+import { BsSpotify } from 'react-icons/bs';
+import { IoIosTimer } from 'react-icons/io';
 
-const IconMenu = () => {
+import iconStyles from '../../styles/componentsCSS/IconMenu.module.css';
+
+const Icon = () => {
   return (
-    <div>
-      <ul>
-        <li>
-          <AiFillYoutube />
-        </li>
-        <li>
-          <CgNotes />
-        </li>
-        <li>
-          <BsSpotify />
-        </li>
-        <li>
-          <IoIosTimer />
-        </li>
-      </ul>
+    <div className={iconStyles.iconbar}>
+      <a className={iconStyles.iconlist}>
+        <AiFillYoutube />
+      </a>
+      <a className={iconStyles.iconlist}>
+        <CgNotes />
+      </a>
+      <a className={iconStyles.iconlist}>
+        <BsSpotify />
+      </a>
+      <a className={iconStyles.iconlist}>
+        <IoIosTimer />
+      </a>
     </div>
   );
 };
 
-export default IconMenu;
+export default Icon;

@@ -1,3 +1,18 @@
 .iconbar {
-  background-color: ;
+  background-color: #18181b;
+  display: flex;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.iconlist {
+  font-size: 42px;
+  padding: 24px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.iconlist:hover {
+  background-color: #7b337d;
 }

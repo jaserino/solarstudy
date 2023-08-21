@@ -7,7 +7,7 @@ import YouTube from '../components/YouTubeContent';
 import Notes from '../components/NotesContent';
 import Timer from '../components/TimerContent';
 import Spotify from '../components/SpotifyContent';
-// import IconMenu from '../components/IconMenu';
+import Icon from '../components/IconMenu';
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
@@ -19,7 +19,8 @@ const Profile = () => {
         Welcome Back {user.name.charAt(0).toUpperCase() + user.name.slice(1)}
       </h1>
 
-      {/* <IconMenu /> */}
+      <Icon />
+
       <div className={profileStyles.grid}>
         <Card title="YouTube" content={<YouTube />} />
         <Card title="Notes" content={<Notes />} />
