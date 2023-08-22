@@ -1,10 +1,11 @@
 .card {
   padding: 2px 15px 15px 15px;
   border-radius: 15px;
-  position: relative;
   opacity: 0.8;
   background-color: #18181b;
   border: 2px solid rgba(255, 255, 255, 0.12);
+  width: 350px;
+  height: 250px;
 }
 
 .card:hover {

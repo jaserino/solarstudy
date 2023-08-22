@@ -1,12 +1,57 @@
 .container {
-  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding: 1rem;
+  width: 100vw;
+  height: 100vh;
+  justify-items: center;
+  align-items: center;
+}
+
+.topGrid {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.gridItem {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.gridItem0 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.gridItem1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.gridItem2 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.gridItem3 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
 .welcome {
   font-size: 3rem;
-  margin: 0px 0px 50px 0px;
+  margin: 0px 0px 20px 0px;
 }

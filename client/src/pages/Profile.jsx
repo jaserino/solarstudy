@@ -44,20 +44,22 @@ const Profile = () => {
 
   return (
     <div className={profileStyles.container}>
-      <h1 className={profileStyles.welcome}>
-        {/*Enables capitlization of first letter in logged user */}
-        Welcome Back {user.name.charAt(0).toUpperCase() + user.name.slice(1)}
-      </h1>
-
-      <Icon onIconClick={handleIconClick} activeCard={activeCard} />
-
-      <div>
-        {activeCard.map((title) => (
-          <Card
+      <div className={profileStyles.topGrid}>
+        <div className={profileStyles.welcome}>
+          Welcome Back {user.name.charAt(0).toUpperCase() + user.name.slice(1)}
+        </div>
+        <Icon onIconClick={handleIconClick} activeCard={activeCard} />
+      </div>
+      <div className={profileStyles.bottomGrid}>
+        {activeCard.map((title, i) => (
+          <div
             key={title}
-            title={title}
-            content={getComponentContent(title)}
-          />
+            className={`${profileStyles.gridItem} ${
+              profileStyles[`gridItem${i}`]
+            }`}
+          >
+            <Card title={title} content={getComponentContent(title)} />
+          </div>
         ))}
       </div>
     </div>
