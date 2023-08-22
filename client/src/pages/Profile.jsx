@@ -13,11 +13,18 @@ const Profile = () => {
   const { user } = useSelector((state) => state.auth);
 
   //keeps track of active card
-  const [activeCard, setActiveCard] = useState('YouTube');
+  const [activeCard, setActiveCard] = useState([]);
 
   // handling our icon click
   const handleIconClick = (title) => {
-    setActiveCard(title);
+    // checks if card title is included in activeCard array
+    if (activeCard.includes(title)) {
+      // if it is the title is removed from the array
+      setActiveCard(activeCard.filter((card) => card !== title));
+    } else {
+      //if it isnt the card title it is added to existing active card array|
+      setActiveCard([...activeCard, title]);
+    }
   };
 
   // get content to display for specific card depending on selected icon
@@ -36,7 +43,7 @@ const Profile = () => {
   };
 
   return (
-    <section className={profileStyles.container}>
+    <div className={profileStyles.container}>
       <h1 className={profileStyles.welcome}>
         {/*Enables capitlization of first letter in logged user */}
         Welcome Back {user.name.charAt(0).toUpperCase() + user.name.slice(1)}
@@ -45,9 +52,15 @@ const Profile = () => {
       <Icon onIconClick={handleIconClick} activeCard={activeCard} />
 
       <div>
-        <Card title={activeCard} content={getComponentContent(activeCard)} />
+        {activeCard.map((title) => (
+          <Card
+            key={title}
+            title={title}
+            content={getComponentContent(title)}
+          />
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 

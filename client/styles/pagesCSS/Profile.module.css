@@ -6,15 +6,7 @@
   align-items: center;
 }
 
-.grid {
-  display: grid;
-  gap: 36px;
-  position: relative;
-}
-
 .welcome {
   font-size: 3rem;
   margin: 0px 0px 50px 0px;
 }
-
-/* accordion */
