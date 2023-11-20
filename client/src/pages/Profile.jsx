@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import profileStyles from '../../styles/pagesCSS/Profile.module.css';
 import { useSelector } from 'react-redux';
 
-import Card from '../components/Card';
-import YouTube from '../components/YouTubeContent';
-import Notes from '../components/NotesContent';
-import Timer from '../components/TimerContent';
-import Spotify from '../components/SpotifyContent';
-import Icon from '../components/IconMenu';
+import Card from '../components/profile/Card';
+import YouTube from '../components/profile/YouTubeContent';
+import Notes from '../components/profile/NotesContent';
+import Timer from '../components/profile/TimerContent';
+import Spotify from '../components/profile/SpotifyContent';
+import Icon from '../components/profile/IconMenu';
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);

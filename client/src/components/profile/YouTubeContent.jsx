@@ -1,5 +1,8 @@
 import React from 'react';
-import youtubeStyles from '../../styles/componentsCSS/Youtube.module.css';
+import youtubeStyles from '../../../styles/componentsCSS/Youtube.module.css';
+
+/* TODO */
+// fix youtube video expanding beyond card
 
 const YouTube = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import cardStyles from '../../styles/componentsCSS/Card.module.css';
+import cardStyles from '../../../styles/componentsCSS/Card.module.css';
 import Draggable from 'react-draggable';
 
 const Card = ({ title, content }) => {
