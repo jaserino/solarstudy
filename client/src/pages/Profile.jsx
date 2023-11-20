@@ -17,18 +17,17 @@ const Profile = () => {
 
   // handling our icon click
   const handleIconClick = (title) => {
-    // checks if card title is included in activeCard array
+    // checks if card title is included in activeCard arra
     if (activeCard.includes(title)) {
-      // if it is the title is removed from the array
+      // if it is, the title is removed from the array
       setActiveCard(activeCard.filter((card) => card !== title));
     } else {
-      //if it isnt the card title it is added to existing active card array|
+      //if it isnt the card title it is added to existing active card array
       setActiveCard([...activeCard, title]);
     }
   };
 
   // get content to display for specific card depending on selected icon
-
   const getComponentContent = (activeCard) => {
     switch (activeCard) {
       case 'YouTube':
