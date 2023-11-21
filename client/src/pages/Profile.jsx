@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import profileStyles from '../../styles/pagesCSS/Profile.module.css';
-import { useSelector } from 'react-redux';
 
 import Card from '../components/profile/Card';
 import YouTube from '../components/profile/YouTubeContent';
@@ -10,8 +9,6 @@ import Spotify from '../components/profile/SpotifyContent';
 import Icon from '../components/profile/IconMenu';
 
 const Profile = () => {
-  const { user } = useSelector((state) => state.auth);
-
   //keeps track of active card
   const [activeCard, setActiveCard] = useState([]);
 
@@ -44,9 +41,7 @@ const Profile = () => {
   return (
     <div className={profileStyles.container}>
       <div className={profileStyles.topGrid}>
-        <div className={profileStyles.welcome}>
-          Welcome Back {user.name.charAt(0).toUpperCase() + user.name.slice(1)}
-        </div>
+        <div className={profileStyles.welcome}>Welcome to SolarStudy</div>
         <Icon onIconClick={handleIconClick} activeCard={activeCard} />
       </div>
       <div className={profileStyles.bottomGrid}>

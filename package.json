@@ -4,21 +4,13 @@
   "description": "study application",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "client": "npm run --prefix client dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "start": "npm run client",
+    "client": "npm run --prefix client dev"
   },
   "author": "jayser",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "concurrently": "^7.6.0",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "express-async-handler": "^1.2.0",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.9.0"
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
