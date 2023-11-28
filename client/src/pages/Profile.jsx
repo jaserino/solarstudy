@@ -11,15 +11,16 @@ import Icon from '../components/profile/IconMenu';
 const Profile = () => {
   //keeps track of active card
   const [activeCard, setActiveCard] = useState([]);
+  // console.log(`Current Card: ${activeCard}`);
 
   // handling our icon click
-  const handleIconClick = (title) => {
-    // checks if card title is included in activeCard arra
+  const handleCardClick = (title) => {
+    // checks if card title is present in activeCard array
     if (activeCard.includes(title)) {
       // if it is, the title is removed from the array
       setActiveCard(activeCard.filter((card) => card !== title));
     } else {
-      //if it isnt the card title it is added to existing active card array
+      //adding title to the array if its not already there
       setActiveCard([...activeCard, title]);
     }
   };
@@ -42,7 +43,7 @@ const Profile = () => {
     <div className={profileStyles.container}>
       <div className={profileStyles.topGrid}>
         <div className={profileStyles.welcome}>Welcome to SolarStudy</div>
-        <Icon onIconClick={handleIconClick} activeCard={activeCard} />
+        <Icon onIconClick={handleCardClick} activeCard={activeCard} />
       </div>
       <div className={profileStyles.bottomGrid}>
         {activeCard.map((title, i) => (

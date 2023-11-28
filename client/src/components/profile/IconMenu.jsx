@@ -9,23 +9,25 @@ import iconStyles from '../../../styles/componentsCSS/IconMenu.module.css';
 // active icon works but need to be an array format so that there can be multiple active classes to get the active class
 
 const Icon = ({ onIconClick }) => {
-  const [activeIcon, setActiveIcon] = useState('');
+  const [activeIcon, setActiveIcon] = useState([]);
+  // console.log(`Current Icon: ${activeIcon}`);
 
   const handleClick = (title) => {
-    if (activeIcon === title) {
-      setActiveIcon('');
+    if (activeIcon.includes(title)) {
+      setActiveIcon(activeIcon.filter((icon) => icon !== title));
     } else {
-      setActiveIcon(title);
+      setActiveIcon([...activeIcon, title]);
     }
     onIconClick(title);
   };
+
   return (
     <div className={iconStyles.iconbar}>
       <div className={iconStyles.iconBox}>
         <h1>YouTube</h1>
         <a
           className={`${iconStyles.iconLogos} ${
-            activeIcon === 'YouTube' ? iconStyles.activeIcon : ''
+            activeIcon.includes('YouTube') ? iconStyles.activeIcon : ''
           }`}
           onClick={() => handleClick('YouTube')}
         >
@@ -37,7 +39,7 @@ const Icon = ({ onIconClick }) => {
         <h1>Notes</h1>
         <a
           className={`${iconStyles.iconLogos} ${
-            activeIcon === 'Notes' ? iconStyles.activeIcon : ''
+            activeIcon.includes('Notes') ? iconStyles.activeIcon : ''
           }`}
           onClick={() => handleClick('Notes')}
         >
@@ -49,7 +51,7 @@ const Icon = ({ onIconClick }) => {
         <h1>Spotify</h1>
         <a
           className={`${iconStyles.iconLogos} ${
-            activeIcon === 'Spotify' ? iconStyles.activeIcon : ''
+            activeIcon.includes('Spotify') ? iconStyles.activeIcon : ''
           }`}
           onClick={() => handleClick('Spotify')}
         >
@@ -61,7 +63,7 @@ const Icon = ({ onIconClick }) => {
         <h1>Timer</h1>
         <a
           className={`${iconStyles.iconLogos} ${
-            activeIcon === 'Timer' ? iconStyles.activeIcon : ''
+            activeIcon.includes('Timer') ? iconStyles.activeIcon : ''
           }`}
           onClick={() => handleClick('Timer')}
         >
