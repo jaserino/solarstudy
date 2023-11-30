@@ -9,7 +9,12 @@ import iconStyles from '../../../styles/componentsCSS/IconMenu.module.css';
 // active icon works but need to be an array format so that there can be multiple active classes to get the active class
 
 const Icon = ({ onIconClick }) => {
-  const [activeIcon, setActiveIcon] = useState([]);
+  const [activeIcon, setActiveIcon] = useState([
+    'YouTube',
+    'Notes',
+    'Spotify',
+    'Timer',
+  ]);
   // console.log(`Current Icon: ${activeIcon}`);
 
   const handleClick = (title) => {

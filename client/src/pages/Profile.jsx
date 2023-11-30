@@ -10,7 +10,12 @@ import Icon from '../components/profile/IconMenu';
 
 const Profile = () => {
   //keeps track of active card
-  const [activeCard, setActiveCard] = useState([]);
+  const [activeCard, setActiveCard] = useState([
+    'YouTube',
+    'Notes',
+    'Spotify',
+    'Timer',
+  ]);
   // console.log(`Current Card: ${activeCard}`);
 
   // handling our icon click
