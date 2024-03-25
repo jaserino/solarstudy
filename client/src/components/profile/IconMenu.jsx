@@ -6,16 +6,13 @@ import { IoIosTimer } from 'react-icons/io';
 
 import iconStyles from '../../../styles/componentsCSS/IconMenu.module.css';
 
-// active icon works but need to be an array format so that there can be multiple active classes to get the active class
-
-const Icon = ({ onIconClick }) => {
+const IconMenu = ({ onIconClick }) => {
   const [activeIcon, setActiveIcon] = useState([
     'YouTube',
     'Notes',
     'Spotify',
     'Timer',
   ]);
-  // console.log(`Current Icon: ${activeIcon}`);
 
   const handleClick = (title) => {
     if (activeIcon.includes(title)) {
@@ -28,8 +25,7 @@ const Icon = ({ onIconClick }) => {
 
   return (
     <div className={iconStyles.iconbar}>
-      <div className={iconStyles.iconBox}>
-        <h1>YouTube</h1>
+      <div>
         <a
           className={`${iconStyles.iconLogos} ${
             activeIcon.includes('YouTube') ? iconStyles.activeIcon : ''
@@ -40,8 +36,7 @@ const Icon = ({ onIconClick }) => {
         </a>
       </div>
 
-      <div className={iconStyles.iconBox}>
-        <h1>Notes</h1>
+      <div>
         <a
           className={`${iconStyles.iconLogos} ${
             activeIcon.includes('Notes') ? iconStyles.activeIcon : ''
@@ -52,8 +47,7 @@ const Icon = ({ onIconClick }) => {
         </a>
       </div>
 
-      <div className={iconStyles.iconBox}>
-        <h1>Spotify</h1>
+      <div>
         <a
           className={`${iconStyles.iconLogos} ${
             activeIcon.includes('Spotify') ? iconStyles.activeIcon : ''
@@ -64,8 +58,7 @@ const Icon = ({ onIconClick }) => {
         </a>
       </div>
 
-      <div className={iconStyles.iconBox}>
-        <h1>Timer</h1>
+      <div>
         <a
           className={`${iconStyles.iconLogos} ${
             activeIcon.includes('Timer') ? iconStyles.activeIcon : ''
@@ -79,4 +72,4 @@ const Icon = ({ onIconClick }) => {
   );
 };
 
-export default Icon;
+export default IconMenu;

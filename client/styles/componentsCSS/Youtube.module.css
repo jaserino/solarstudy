@@ -58,13 +58,13 @@ input[type='checkbox'] {
   color: #2c3e50;
   transition: all 0.35s;
 }
-.tab1 {
+.tabcontent1 {
   max-height: 100vh;
   color: #2c3e50;
   transition: all 0.35s;
 }
 
-input:checked ~ .tab1 {
+input:checked ~ .tabcontent1 {
   max-height: 0;
 }
 input:checked ~ .tabcontent {

@@ -13,7 +13,7 @@ const YouTube = () => {
         <label className={ytStyles.tablabel1} htmlFor="check1">
           Chillstep Lofi
         </label>
-        <div className={ytStyles.tab1}>
+        <div className={ytStyles.tabcontent1}>
           <iframe
             id="video1"
             src="https://www.youtube.com/embed/LXyTZIEQAsI"

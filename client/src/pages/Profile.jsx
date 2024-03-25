@@ -6,7 +6,7 @@ import YouTube from '../components/profile/YouTubeContent';
 import Notes from '../components/profile/NotesContent';
 import Timer from '../components/profile/TimerContent';
 import Spotify from '../components/profile/SpotifyContent';
-import Icon from '../components/profile/IconMenu';
+import IconMenu from '../components/profile/IconMenu';
 
 const Profile = () => {
   //keeps track of active card
@@ -16,7 +16,6 @@ const Profile = () => {
     'Spotify',
     'Timer',
   ]);
-  // console.log(`Current Card: ${activeCard}`);
 
   // handling our icon click
   const handleCardClick = (title) => {
@@ -45,24 +44,30 @@ const Profile = () => {
   };
 
   return (
-    <div className={profileStyles.container}>
-      <div className={profileStyles.topGrid}>
-        <div className={profileStyles.welcome}>Welcome to SolarStudy</div>
-        <Icon onIconClick={handleCardClick} activeCard={activeCard} />
+    <>
+      <div className={profileStyles.iconNav}>
+        <IconMenu onIconClick={handleCardClick} activeCard={activeCard} />
       </div>
-      <div className={profileStyles.bottomGrid}>
-        {activeCard.map((title, i) => (
-          <div
-            key={title}
-            className={`${profileStyles.gridItem} ${
-              profileStyles[`gridItem${i}`]
-            }`}
-          >
-            <Card title={title} content={getComponentContent(title)} />
-          </div>
-        ))}
+      <div className={profileStyles.container}>
+        <div className={profileStyles.cardGrid}>
+          {activeCard.map((title, i) => (
+            <div
+              key={title}
+              className={`${profileStyles.gridItem} ${
+                profileStyles[`gridItem${i}`]
+              }`}
+            >
+              <Card
+                title={title}
+                content={getComponentContent(title)}
+                activeCard={activeCard}
+                setActiveCard={setActiveCard}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

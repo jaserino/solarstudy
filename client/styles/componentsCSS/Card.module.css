@@ -6,6 +6,21 @@
   border: 2px solid rgba(255, 255, 255, 0.12);
   width: 350px;
   height: auto;
+  display: flex;
+  flex-direction: column;
+}
+/* used to select only the first child of the card flexbox */
+/* could also achieve this using relative and abs positioning */
+.card > *:first-child {
+  align-self: flex-end;
+}
+
+.card h3 {
+  margin-top: 0px;
+}
+
+.minimize {
+  font-size: 2rem;
 }
 
 .card:hover {
