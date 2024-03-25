@@ -16,7 +16,6 @@ const Profile = () => {
     'Spotify',
     'Timer',
   ]);
-  // test comment
   // handling our icon click
   const handleCardClick = (title) => {
     // checks if card title is present in activeCard array
