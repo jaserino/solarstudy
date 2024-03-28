@@ -1,17 +1,22 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  cards: ['YouTube', 'Notes', 'Spotify', 'Timer'],
+};
+
 // TODO
 // Implement reducers for icon color change
-export const activeCard = createSlice({
-  name: 'card',
-  initalState: {
-    card: ['YouTube', 'Notes', 'Spotify', 'Timer'],
-  },
+const activeCardSlice = createSlice({
+  name: 'cards',
+  initialState,
   reducers: {
-    // put state for icon in reducer
-    // actions go here
-    // change state here to hold value of color
+    removeCard: (state, action) => {
+      state.cards = state.cards.filter((card) => card !== action.payload);
+    },
   },
 });
 
 // export reducer functions
+export const { removeCard } = activeCardSlice.actions;
 
-export default activeCard.reducer;
+export default activeCardSlice.reducer;
