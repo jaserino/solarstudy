@@ -1,4 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import cardReducer from '../app/activeCard/ActiveCard';
+
+export default configureStore({
+  reducer: {
+    card: cardReducer,
+  },
+});
 
 /*
 // Store - global state
@@ -15,9 +22,4 @@ const decrement = { type: 'Decrement', payload: 1 };
 
 // Reducers - will use the type of actions to make the update
 // Reducers never change the state itself, they make copies and change them
-
 */
-
-export const store = configureStore({
-  reducer: {},
-});
