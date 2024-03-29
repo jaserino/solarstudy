@@ -5,9 +5,8 @@ import { IoClose } from 'react-icons/io5';
 
 //TODO *****
 // Implement Redux to store the activeIcon and activeCard state. this will be beneficial down the road.
-// Figure out why cards move around the screen after being dragged to a different location and minimizing them
 
-const Card = ({ title, content, activeCard, setActiveCard }) => {
+const Card = ({ title, content }) => {
   const nodeRef = React.useRef(null);
 
   const [minimized, setMinimized] = useState(false);

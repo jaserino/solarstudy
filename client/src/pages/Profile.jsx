@@ -8,60 +8,33 @@ import Timer from '../components/profile/TimerContent';
 import Spotify from '../components/profile/SpotifyContent';
 import IconMenu from '../components/profile/IconMenu';
 
-const Profile = () => {
-  //keeps track of active card
-  const [activeCard, setActiveCard] = useState([
-    'YouTube',
-    'Notes',
-    'Spotify',
-    'Timer',
-  ]);
-  // handling our icon click
-  const handleCardClick = (title) => {
-    // checks if card title is present in activeCard array
-    if (activeCard.includes(title)) {
-      // if it is, the title is removed from the array
-      setActiveCard(activeCard.filter((card) => card !== title));
-    } else {
-      //adding title to the array if its not already there
-      setActiveCard([...activeCard, title]);
-    }
-  };
+import { useSelector, useDispatch } from 'react-redux';
+import { removeCard, addCard } from '../app/activeCard/ActiveCard';
 
-  // get content to display for specific card depending on selected icon
-  const getComponentContent = (activeCard) => {
-    switch (activeCard) {
-      case 'YouTube':
-        return <YouTube />;
-      case 'Notes':
-        return <Notes />;
-      case 'Spotify':
-        return <Spotify />;
-      case 'Timer':
-        return <Timer />;
-    }
+const Profile = () => {
+  const activeCards = useSelector((state) => state.cards);
+  const dispatch = useDispatch();
+
+  const handleIconClick = (label) => {
+    const cardExists = activeCards.titles.includes(label);
+    dispatch(cardExists ? removeCard(label) : addCard(label));
   };
 
   return (
     <>
       <div className={profileStyles.iconNav}>
-        <IconMenu onIconClick={handleCardClick} activeCard={activeCard} />
+        <IconMenu onIconClick={handleIconClick} />
       </div>
       <div className={profileStyles.container}>
         <div className={profileStyles.cardGrid}>
-          {activeCard.map((title, i) => (
+          {activeCards.labels.map((label, i) => (
             <div
-              key={title}
+              key={label}
               className={`${profileStyles.gridItem} ${
                 profileStyles[`gridItem${i}`]
               }`}
             >
-              <Card
-                title={title}
-                content={getComponentContent(title)}
-                activeCard={activeCard}
-                setActiveCard={setActiveCard}
-              />
+              <Card label={label} />
             </div>
           ))}
         </div>

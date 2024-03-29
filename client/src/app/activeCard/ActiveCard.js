@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  cards: ['YouTube', 'Notes', 'Spotify', 'Timer'],
+  labels: ['YouTube', 'Notes', 'Spotify', 'Timer'],
 };
 
 // TODO
@@ -11,12 +11,15 @@ const activeCardSlice = createSlice({
   initialState,
   reducers: {
     removeCard: (state, action) => {
-      state.cards = state.cards.filter((card) => card !== action.payload);
+      state.labels = state.labels.filter((lable) => lable !== action.payload);
+    },
+    addCard: (state, action) => {
+      state.labels = [...state.labels, action.payload];
     },
   },
 });
 
 // export reducer functions
-export const { removeCard } = activeCardSlice.actions;
+export const { removeCard, addCard } = activeCardSlice.actions;
 
 export default activeCardSlice.reducer;
