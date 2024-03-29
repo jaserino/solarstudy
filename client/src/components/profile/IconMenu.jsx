@@ -3,67 +3,51 @@ import { AiFillYoutube } from 'react-icons/ai';
 import { CgNotes } from 'react-icons/cg';
 import { BsSpotify } from 'react-icons/bs';
 import { IoIosTimer } from 'react-icons/io';
-
 import iconStyles from '../../../styles/componentsCSS/IconMenu.module.css';
 
-const IconMenu = ({ onIconClick }) => {
-  const [activeIcon, setActiveIcon] = useState([
-    'YouTube',
-    'Notes',
-    'Spotify',
-    'Timer',
-  ]);
+import { useSelector } from 'react-redux';
 
-  const handleClick = (title) => {
-    if (activeIcon.includes(title)) {
-      setActiveIcon(activeIcon.filter((icon) => icon !== title));
-    } else {
-      setActiveIcon([...activeIcon, title]);
-    }
-    onIconClick(title);
-  };
+const IconMenu = ({ onIconClick }) => {
+  const activeCards = useSelector((state) => state.cards);
 
   return (
     <div className={iconStyles.iconbar}>
       <div>
         <a
           className={`${iconStyles.iconLogos} ${
-            activeIcon.includes('YouTube') ? iconStyles.activeIcon : ''
+            activeCards.labels.includes('YouTube') ? iconStyles.activeIcon : ''
           }`}
-          onClick={() => handleClick('YouTube')}
+          onClick={() => onIconClick('YouTube')}
         >
           <AiFillYoutube />
         </a>
       </div>
-
       <div>
         <a
           className={`${iconStyles.iconLogos} ${
-            activeIcon.includes('Notes') ? iconStyles.activeIcon : ''
+            activeCards.labels.includes('Notes') ? iconStyles.activeIcon : ''
           }`}
-          onClick={() => handleClick('Notes')}
+          onClick={() => onIconClick('Notes')}
         >
           <CgNotes />
         </a>
       </div>
-
       <div>
         <a
           className={`${iconStyles.iconLogos} ${
-            activeIcon.includes('Spotify') ? iconStyles.activeIcon : ''
+            activeCards.labels.includes('Spotify') ? iconStyles.activeIcon : ''
           }`}
-          onClick={() => handleClick('Spotify')}
+          onClick={() => onIconClick('Spotify')}
         >
           <BsSpotify />
         </a>
       </div>
-
       <div>
         <a
           className={`${iconStyles.iconLogos} ${
-            activeIcon.includes('Timer') ? iconStyles.activeIcon : ''
+            activeCards.labels.includes('Timer') ? iconStyles.activeIcon : ''
           }`}
-          onClick={() => handleClick('Timer')}
+          onClick={() => onIconClick('Timer')}
         >
           <IoIosTimer />
         </a>
