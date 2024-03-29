@@ -20,6 +20,20 @@ const Profile = () => {
     dispatch(cardExists ? removeCard(label) : addCard(label));
   };
 
+  // returning card content
+  const getComponentContent = (activeCards) => {
+    switch (activeCards) {
+      case 'YouTube':
+        return <YouTube />;
+      case 'Notes':
+        return <Notes />;
+      case 'Spotify':
+        return <Spotify />;
+      case 'Timer':
+        return <Timer />;
+    }
+  };
+
   return (
     <>
       <div className={profileStyles.iconNav}>
@@ -34,7 +48,7 @@ const Profile = () => {
                 profileStyles[`gridItem${i}`]
               }`}
             >
-              <Card label={label} />
+              <Card label={label} content={getComponentContent(label)} />
             </div>
           ))}
         </div>

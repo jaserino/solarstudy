@@ -3,10 +3,10 @@ import cardStyles from '../../../styles/componentsCSS/Card.module.css';
 import Draggable from 'react-draggable';
 import { IoClose } from 'react-icons/io5';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { minimizeCard } from '../../app/activeCard/ActiveCard';
 
-const Card = ({ title, content, label }) => {
+const Card = ({ content, label }) => {
   const nodeRef = React.useRef(null);
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ const Card = ({ title, content, label }) => {
         <div className={cardStyles.minimize}>
           <IoClose onClick={minimizeIcon} />
         </div>
-        <h3>{title}</h3>
+        <h3>{label}</h3>
         {content}
       </div>
     </Draggable>
