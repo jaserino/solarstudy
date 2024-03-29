@@ -11,15 +11,18 @@ const activeCardSlice = createSlice({
   initialState,
   reducers: {
     removeCard: (state, action) => {
-      state.labels = state.labels.filter((lable) => lable !== action.payload);
+      state.labels = state.labels.filter((label) => label !== action.payload);
     },
     addCard: (state, action) => {
       state.labels = [...state.labels, action.payload];
+    },
+    minimizeCard: (state, action) => {
+      state.labels = state.labels.filter((label) => label !== action.payload);
     },
   },
 });
 
 // export reducer functions
-export const { removeCard, addCard } = activeCardSlice.actions;
+export const { removeCard, addCard, minimizeCard } = activeCardSlice.actions;
 
 export default activeCardSlice.reducer;

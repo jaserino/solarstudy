@@ -3,29 +3,22 @@ import cardStyles from '../../../styles/componentsCSS/Card.module.css';
 import Draggable from 'react-draggable';
 import { IoClose } from 'react-icons/io5';
 
-//TODO *****
-// Implement Redux to store the activeIcon and activeCard state. this will be beneficial down the road.
+import { useDispatch, useSelector } from 'react-redux';
+import { minimizeCard } from '../../app/activeCard/ActiveCard';
 
-const Card = ({ title, content }) => {
+const Card = ({ title, content, label }) => {
   const nodeRef = React.useRef(null);
+  const dispatch = useDispatch();
 
-  const [minimized, setMinimized] = useState(false);
-
-  const minimizeCard = () => {
-    const minimize = activeCard.filter((card) => card !== title);
-
-    setActiveCard(minimize);
-
-    if (minimize.length === 0) {
-      setMinimized(true);
-    }
+  const minimizeIcon = () => {
+    dispatch(minimizeCard(label));
   };
 
   return (
     <Draggable nodeRef={nodeRef}>
       <div className={cardStyles.card} ref={nodeRef}>
         <div className={cardStyles.minimize}>
-          <IoClose onClick={minimizeCard} />
+          <IoClose onClick={minimizeIcon} />
         </div>
         <h3>{title}</h3>
         {content}
