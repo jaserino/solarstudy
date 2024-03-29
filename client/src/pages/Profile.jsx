@@ -16,7 +16,7 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const handleIconClick = (label) => {
-    const cardExists = activeCards.titles.includes(label);
+    const cardExists = activeCards.labels.includes(label);
     dispatch(cardExists ? removeCard(label) : addCard(label));
   };
 
