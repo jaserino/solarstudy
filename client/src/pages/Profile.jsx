@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import profileStyles from '../../styles/pagesCSS/Profile.module.css';
 
-import Card from '../components/profile/Card';
 import YouTube from '../components/profile/YouTubeContent';
 import Notes from '../components/profile/NotesContent';
 import Timer from '../components/profile/TimerContent';
 import Spotify from '../components/profile/SpotifyContent';
 import IconMenu from '../components/profile/IconMenu';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { removeCard, addCard } from '../app/activeCard/ActiveCard';
 
-const Profile = () => {
+const Profile = ({ label }) => {
   const activeCards = useSelector((state) => state.cards);
   const dispatch = useDispatch();
 
@@ -19,29 +19,18 @@ const Profile = () => {
     dispatch(cardExists ? removeCard(label) : addCard(label));
   };
 
-  // returning card content
-  const getComponentContent = (activeCards) => {
-    switch (activeCards) {
-      case 'YouTube':
-        return <YouTube />;
-      case 'Notes':
-        return <Notes />;
-      case 'Spotify':
-        return <Spotify />;
-      case 'Timer':
-        return <Timer />;
-    }
-  };
-
   return (
     <>
       <div className={profileStyles.iconNav}>
         <IconMenu onIconClick={handleIconClick} />
       </div>
       <div className={profileStyles.container}>
-        {activeCards.labels.map((label) => (
-          <div>
-            <Card label={label} content={getComponentContent(label)} />
+        {activeCards.labels.map((cardLabel) => (
+          <div key={cardLabel}>
+            {cardLabel === 'Notes' && <Notes label={cardLabel} />}
+            {cardLabel === 'YouTube' && <YouTube label={cardLabel} />}
+            {cardLabel === 'Spotify' && <Spotify label={cardLabel} />}
+            {cardLabel === 'Timer' && <Timer label={cardLabel} />}
           </div>
         ))}
       </div>
