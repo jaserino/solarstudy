@@ -21,6 +21,7 @@
 
 .minimize {
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .card:hover {
