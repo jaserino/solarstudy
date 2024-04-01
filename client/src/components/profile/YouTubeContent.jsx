@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import ytStyles from '../../../styles/componentsCSS/Youtube.module.css';
+import React from 'react';
 import Draggable from 'react-draggable';
-import cardStyles from '../../../styles/componentsCSS/Card.module.css';
-
 import { useDispatch } from 'react-redux';
 import { IoClose } from 'react-icons/io5';
 import { minimizeCard } from '../../app/activeCard/ActiveCard';
+
+import cardStyles from '../../../styles/componentsCSS/Card.module.css';
+import ytStyles from '../../../styles/componentsCSS/Youtube.module.css';
 
 /* TODO */
 // fix youtube video expanding beyond card
@@ -18,6 +18,7 @@ const YouTube = ({ label }) => {
   const minimizeIcon = () => {
     dispatch(minimizeCard(label));
   };
+
   return (
     <Draggable bounds="body" nodeRef={nodeRef}>
       <div className={cardStyles.card} ref={nodeRef}>

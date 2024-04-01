@@ -3,7 +3,6 @@ import Draggable from 'react-draggable';
 import { useDispatch } from 'react-redux';
 import { IoClose } from 'react-icons/io5';
 import { minimizeCard } from '../../app/activeCard/ActiveCard';
-
 import cardStyles from '../../../styles/componentsCSS/Card.module.css';
 
 const Notes = ({ label }) => {
