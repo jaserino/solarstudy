@@ -8,7 +8,6 @@ import cardStyles from '../../../styles/componentsCSS/Card.module.css';
 import ytStyles from '../../../styles/componentsCSS/Youtube.module.css';
 
 /* TODO */
-// fix youtube video expanding beyond card
 // need to use postMessage API to allow cross-frame communication as iframe is in a different context than the vol control buttons.
 
 const YouTube = ({ label }) => {
@@ -20,7 +19,11 @@ const YouTube = ({ label }) => {
   };
 
   return (
-    <Draggable bounds="body" nodeRef={nodeRef}>
+    <Draggable
+      bounds="body"
+      nodeRef={nodeRef}
+      defaultPosition={{ x: 150, y: -50 }}
+    >
       <div className={cardStyles.card} ref={nodeRef}>
         <div className={cardStyles.minimize}>
           <IoClose onClick={minimizeIcon} />

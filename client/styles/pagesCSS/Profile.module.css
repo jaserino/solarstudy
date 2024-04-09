@@ -1,8 +1,5 @@
 .container {
-  min-height: 100vh;
-  display: flex;
-  gap: 4rem;
-  justify-content: center;
+  height: 100vh;
 }
 
 .iconNav {

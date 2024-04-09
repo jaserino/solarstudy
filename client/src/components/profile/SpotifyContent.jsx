@@ -14,7 +14,11 @@ const Spotify = ({ label }) => {
   };
 
   return (
-    <Draggable bounds="body" nodeRef={nodeRef}>
+    <Draggable
+      bounds="body"
+      nodeRef={nodeRef}
+      defaultPosition={{ x: 1350, y: -700 }}
+    >
       <div className={cardStyles.card} ref={nodeRef}>
         <div className={cardStyles.minimize}>
           <IoClose onClick={minimizeIcon} />
