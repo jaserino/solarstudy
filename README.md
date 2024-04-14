@@ -11,6 +11,7 @@ Solar Study:
 - Will include Timers, music integration, notepads
 
 ![Home](projimg/main.png?raw=true)
+![Profile](projimg/profile.png)
 
 ### Built With
 

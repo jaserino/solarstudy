@@ -14,11 +14,7 @@ const Notes = ({ label }) => {
   };
 
   return (
-    <Draggable
-      bounds="body"
-      nodeRef={nodeRef}
-      defaultPosition={{ x: 500, y: 100 }}
-    >
+    <Draggable bounds="body" nodeRef={nodeRef}>
       <div className={cardStyles.card} ref={nodeRef}>
         <div className={cardStyles.minimize}>
           <IoClose onClick={minimizeIcon} />

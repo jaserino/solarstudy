@@ -14,11 +14,7 @@ const Timer = ({ label }) => {
   };
 
   return (
-    <Draggable
-      bounds="body"
-      nodeRef={nodeRef}
-      defaultPosition={{ x: 750, y: -750 }}
-    >
+    <Draggable bounds="body" nodeRef={nodeRef}>
       <div className={cardStyles.card} ref={nodeRef}>
         <div className={cardStyles.minimize}>
           <IoClose onClick={minimizeIcon} />

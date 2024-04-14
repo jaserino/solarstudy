@@ -7,9 +7,6 @@ import { minimizeCard } from '../../app/activeCard/ActiveCard';
 import cardStyles from '../../../styles/componentsCSS/Card.module.css';
 import ytStyles from '../../../styles/componentsCSS/Youtube.module.css';
 
-/* TODO */
-// need to use postMessage API to allow cross-frame communication as iframe is in a different context than the vol control buttons.
-
 const YouTube = ({ label }) => {
   const nodeRef = React.useRef(null);
   const dispatch = useDispatch();
@@ -19,11 +16,7 @@ const YouTube = ({ label }) => {
   };
 
   return (
-    <Draggable
-      bounds="body"
-      nodeRef={nodeRef}
-      defaultPosition={{ x: 150, y: -50 }}
-    >
+    <Draggable bounds="body" nodeRef={nodeRef}>
       <div className={cardStyles.card} ref={nodeRef}>
         <div className={cardStyles.minimize}>
           <IoClose onClick={minimizeIcon} />
