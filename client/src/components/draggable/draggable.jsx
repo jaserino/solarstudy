@@ -1,3 +1,0 @@
-const draggable = () => {
-  return 'hello';
-};

@@ -1,23 +1,25 @@
 import React from 'react';
-import Draggable from 'react-draggable';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { IoClose } from 'react-icons/io5';
 import { minimizeCard } from '../../app/activeCard/ActiveCard';
+import { DragWrapper } from '../draggable/DragWrapper';
 
 import cardStyles from '../../../styles/componentsCSS/Card.module.css';
 import ytStyles from '../../../styles/componentsCSS/Youtube.module.css';
 
 const YouTube = ({ label }) => {
-  const nodeRef = React.useRef(null);
+  const ytPosition = useSelector((state) => state.youtube);
   const dispatch = useDispatch();
+
+  const { ytPosX, ytPosY, setYtPos } = ytPosition;
 
   const minimizeIcon = () => {
     dispatch(minimizeCard(label));
   };
 
   return (
-    <Draggable bounds="body" nodeRef={nodeRef}>
-      <div className={cardStyles.card} ref={nodeRef}>
+    <DragWrapper defaultX={ytPosX} defaultY={ytPosY} dispatch={useDispatch}>
+      <div className={cardStyles.card}>
         <div className={cardStyles.minimize}>
           <IoClose onClick={minimizeIcon} />
         </div>
@@ -66,7 +68,7 @@ const YouTube = ({ label }) => {
           </div>
         </div>
       </div>
-    </Draggable>
+    </DragWrapper>
   );
 };
 

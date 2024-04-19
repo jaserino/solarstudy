@@ -1,5 +1,4 @@
 import React from 'react';
-import Draggable from 'react-draggable';
 import { useDispatch } from 'react-redux';
 import { IoClose } from 'react-icons/io5';
 import { minimizeCard } from '../../app/activeCard/ActiveCard';
@@ -14,8 +13,8 @@ const Spotify = ({ label }) => {
   };
 
   return (
-    <Draggable bounds="body" nodeRef={nodeRef}>
-      <div className={cardStyles.card} ref={nodeRef}>
+    <>
+      <div className={cardStyles.card}>
         <div className={cardStyles.minimize}>
           <IoClose onClick={minimizeIcon} />
         </div>
@@ -25,7 +24,7 @@ const Spotify = ({ label }) => {
         ipsam! Voluptate laboriosam excepturi soluta dolorum facere explicabo
         tempora accusantium harum.
       </div>
-    </Draggable>
+    </>
   );
 };
 

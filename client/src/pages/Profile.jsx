@@ -27,10 +27,10 @@ const Profile = ({ label }) => {
       <div className={profileStyles.container}>
         {activeCards.labels.map((cardLabel) => (
           <div key={cardLabel}>
-            {cardLabel === 'Notes' && <Notes label={cardLabel} />}
+            {/* {cardLabel === 'Notes' && <Notes label={cardLabel} />} */}
             {cardLabel === 'YouTube' && <YouTube label={cardLabel} />}
-            {cardLabel === 'Spotify' && <Spotify label={cardLabel} />}
-            {cardLabel === 'Timer' && <Timer label={cardLabel} />}
+            {/* {cardLabel === 'Spotify' && <Spotify label={cardLabel} />}
+            {cardLabel === 'Timer' && <Timer label={cardLabel} />} */}
           </div>
         ))}
       </div>

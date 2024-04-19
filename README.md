@@ -7,7 +7,7 @@
 Solar Study:
 
 - This projects mission is to boost your workspace making a more productive environment
-- Condensing youre work necessities in 1 place making it easier to focus on your WORK
+- Condensing your work necessities in 1 place making it easier to focus on your WORK
 - Will include Timers, music integration, notepads
 
 ![Home](projimg/main.png?raw=true)

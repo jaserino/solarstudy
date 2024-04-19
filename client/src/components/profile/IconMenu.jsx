@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import React from 'react';
 import { AiFillYoutube } from 'react-icons/ai';
 import { CgNotes } from 'react-icons/cg';
 import { BsSpotify } from 'react-icons/bs';
